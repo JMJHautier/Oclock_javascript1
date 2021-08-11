@@ -44,25 +44,27 @@ const data = [
   },
 ];
 
+
+
+// ici on utilise le retour implicite
+// si une fonction fléchée contient une seule instruction
+// elle retourne le résultat de manière implicite
+// si le retourn est un objet, il doit obligatoirement être mis en parenthèse
+const convertCharacter = (character) => ({
+    name: character.firstname + ' ' + character.lastname,
+    young: character.age < 50
+});
+
+/*
+équivalent à :
 const convertCharacter = (character) => {
-  // on construit l'objet qui sera placé dans le tableau résultat
-  const name = character.firstname + ' ' + character.lastname;
-  
-  let young;
-
-  if (character.age < 50){
-    young = true;
-  }else{
-    young = false;
-  }
-
   // on retourn l'objet construit
   return {
-    name: name,
-    young: young,
+    name: character.firstname + ' ' + character.lastname,
+    young: character.age < 50,
   };
 };
-
+*/
 
 const characters = data.map(convertCharacter);
 
