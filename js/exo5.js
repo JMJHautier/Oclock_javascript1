@@ -43,7 +43,13 @@ const data = [
 ];
 
 function findUser(login, users) {
-  
+  // find renvoie le premier élément du tableau qui respecte 
+  // la fonction prédicat (fonction qui renvoie vrai ou faux) passée en argument
+  return users.find(
+    (user) => {
+      return user.login === login;
+    }
+  );
 }
 
 
