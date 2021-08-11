@@ -60,10 +60,27 @@ const users = [
   },
 ];
 
-const allowedUsers = users;
+// le callback à passer à filter
+// prend en paramètre l'élément à observer (+ éventuellenent l'index et le tableau complet)
+// et doit retourner true si l'élément est à conserver, faux sinon
+const shouldYouEnter = (people) => {
+
+  // on peut rentrer si on a au moins 18 ans et 20 e
+  if (people.age >= 18 && people.cash >= 20){
+    return true;
+  }
+
+  // on peut rentrer si on a moins de 18 ans et 500 e min
+  if (people.age < 18 && people.cash >= 500){
+    return true;
+  }
+
+  // sinon, on rentre pas
+  return false;
+};
 
 
-
+const allowedUsers = users.filter(shouldYouEnter);
 
 
 
