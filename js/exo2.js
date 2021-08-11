@@ -44,10 +44,36 @@ const data = [
   },
 ];
 
-const characters = data.map(/* ... */);
+const convertCharacter = (character) => {
+  // on construit l'objet qui sera placé dans le tableau résultat
+  const name = character.firstname + ' ' + character.lastname;
+  
+  let young;
+
+  if (character.age < 50){
+    young = true;
+  }else{
+    young = false;
+  }
+
+  // on retourn l'objet construit
+  return {
+    name: name,
+    young: young,
+  };
+};
 
 
+const characters = data.map(convertCharacter);
 
+// on doit passer en argument à map
+// une fonction permettant de décrire la transformation à 
+// appliquer aux éléments
+// en entrée, on aura à minima besoin d'un paramètre permettant
+// de recueillr l'élément à transformer
+// en sortie, elle devra retourné l'élément transformé
+
+console.log(characters);
 
 
 
