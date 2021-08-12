@@ -47,17 +47,28 @@ const users = [
   },
 ];
 
-function sayHelloToUser(user) {
-
+// sayHelloToUser renvoie une fonction qui prend en paramètre une langue.
+// cette fonction sait dire bonjour à CET utilisateur.
+function sayHelloToUser({firstName, lastName}) {
+  return function(lang){
+    switch(lang){
+      case 'fr':
+        return `Bonjour ${firstName} ${lastName}`;
+      case 'es':
+          return `Ola ${firstName} ${lastName}`;
+      default:
+          return `👋 ${firstName} ${lastName}`;
+    }
+  };
 }
 
-
-
-
-
-
-
-
+// on récupère le premier utilisateur du tableau (assignation par décomposition)
+const [john] = users;
+// on exécute la fonction sayHelloToUser et récupère dans helloToJohn.
+// la fonction retournée qui a mémorisé son contexte (donc john).
+const helloToJohn = sayHelloToUser(john);
+// en l'éxécutant, on constate qu'elle se rappelle bien de qui est john !
+console.log(helloToJohn('it'));
 
 /*
  * Tests
