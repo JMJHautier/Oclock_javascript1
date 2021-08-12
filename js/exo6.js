@@ -41,17 +41,29 @@ const animaux = [
   }
 ];
 
+// l'affectation par décomposition
+// permet d'effectuer ce genre d'opération
+// avec une syntaxe plus compacte
+// const canard = animaux[0];
+// const chat = animaux[1];
+// const lion = animaux[2];
+// const mouton = animaux[3];
 
+// dans une assignation par décomposition de tableau
+// c'est l'ordre qui compte
+// premier élément dans la première variable, etc.
+const [canard, chat, lion, mouton] = animaux; 
 
+// on peut si on le souhaite prendre seulement les premiers 
+// élément
+const [canard2, chat2] = animaux;
 
+console.log(canard2, chat2);
 
+// ou même zapper un élément qui ne nous intéresserait pas
+const [canard3, , lion3] = animaux;
 
-
-
-
-
-
-
+console.log(canard3, lion3);
 
 /*
  * Tests
