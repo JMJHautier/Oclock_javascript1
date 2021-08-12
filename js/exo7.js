@@ -28,12 +28,21 @@ const user = {
 };
 
 
+// l'assignation par décomposition d'objet
+// permet d'extraire d'un objet certaines de ses propriétés
+// pour les stocker dans des variables.
+// c'est équivalent à :
+// const firstName = user.firstName;
+// const login = user.login;
+// const name = firstName;
 
+// const {login, firstName} = user;
+// const name = firstName;
 
-
-
-
-
+// ici on profite de la décomposition 
+// pour stocker le contenu de la propriété firstName de l'objet user
+// dans une variable nommée name
+const {login, firstName: name} = user;
 
 
 /*
