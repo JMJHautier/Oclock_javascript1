@@ -25,3 +25,16 @@ const user = {
   lang: 'fr',
 };
 
+// function sayHelloToUser(user){
+//   const {firstName, lastName} = user;
+//   console.log(`Bonjour ${firstName} ${lastName} !`);
+// }
+
+// ici, on "décompose directement l'objet que l'on recevra en argument
+// dans la signature de la fonction"
+function sayHelloToUser({firstName, lastName}){
+  console.log(`Bonjour ${firstName} ${lastName} !`);
+}
+
+
+sayHelloToUser(user);
